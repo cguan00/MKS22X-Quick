@@ -34,9 +34,15 @@ public class Quick{
   }
 
   /*return the value that is the kth smallest value of the array.
- */
+  */
   public static int quickselect(int[] data, int k){
     return 0;
+  }
+
+  //method to check if parition is working properly
+  //all values on left will be less than partition, all values on right will be greater
+  public boolean checkPartition(int[] data){
+    return true;
   }
 
 }
