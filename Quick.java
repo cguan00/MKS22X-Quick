@@ -16,7 +16,7 @@ public class Quick{
     data[pivotIndex] = data[0];//swap pivot and index
     data[0] = pivot;//swap pivot and index
     while(low <= high){//while still within bounds
-      if(data[low] > pivot){//if less than the pivot
+      if(data[low] > pivot){//if greater than the pivot
         swap(data, low, high);
         high--;
       }else{
@@ -33,16 +33,32 @@ public class Quick{
       data[start] = temp;
   }
 
-  /*return the value that is the kth smallest value of the array.
-  */
-  public static int quickselect(int[] data, int k){
-    return 0;
-  }
 
   //method to check if parition is working properly
   //all values on left will be less than partition, all values on right will be greater
   public boolean checkPartition(int[] data){
     return true;
   }
+
+  public static String printArray(int[] data){
+    String output = "";
+    for(int i = 0; i < data.length; i++){
+      output += data[i] + " ";
+    }
+    return output;
+  }
+
+  /*return the value that is the kth smallest value of the array. k=0 is the smallest
+ */
+  public static int quickselect(int[] data, int k){
+    return 0;
+  }
+
+/*Modify the array to be in increasing order.
+ */
+ public static void quicksort(int[] data){
+
+ }
+
 
 }
