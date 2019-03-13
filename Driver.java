@@ -4,5 +4,6 @@ public class Driver{
     System.out.println(Quick.printArray(data1));
     System.out.println(Quick.partition(data1, 0, 6));
     System.out.println(Quick.printArray(data1));
+    System.out.println(Quick.checkPartition(data1));
   }
 }
