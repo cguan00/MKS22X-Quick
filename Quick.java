@@ -11,7 +11,7 @@ public class Quick{
   public static int partition(int[] data, int start, int end) {
     int pivotIndex = (int) (Math.random()*(end - start) + start);
     int pivot = data[pivotIndex];
-    System.out.println(pivot);
+    // System.out.println(pivot);
     int low = start + 1;
     int high = end;
     data[pivotIndex] = data[0];//swap pivot and index
@@ -29,9 +29,9 @@ public class Quick{
   }
 
   public static void swap(int[] data, int start, int end) {
-      int temp = data[end];
-      data[end] = data[start];
-      data[start] = temp;
+    int temp = data[end];
+    data[end] = data[start];
+    data[start] = temp;
   }
 
 
@@ -67,17 +67,36 @@ public class Quick{
     return output;
   }
 
-  /*return the value that is the kth smallest value of the array. k=0 is the smallest
+  /*return the value that is the kth smallest value of the array. k = 0 is the smallest
  */
   public static int quickselect(int[] data, int k){
+    int pivot = partition(data, 0, data.length - 1);
+    if(k == pivot){
+      return pivot;
+    }
+    if(pivot < k){
+
+    }
+    if(pivot > k){
+      
+    }
     return 0;
   }
 
-/*Modify the array to be in increasing order.
- */
- public static void quicksort(int[] data){
+  /*Modify the array to be in increasing order.
+   */
+   public static void quicksort(int[] data){
+     // quicksort(data, 0 , 0);
+   }
 
- }
+   public static void quicksort(int[] data, int lo, int hi){
+     // if(lo <= hi){
+     //   return;
+     // }
+     // int pivot = partition(data, lo, hi);
+     // quicksort(data, lo, pivot - 1);
+     // quicksort(data, pivot + 1, hi);
+   }
 
 
 }
