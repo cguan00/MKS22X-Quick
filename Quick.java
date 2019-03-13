@@ -11,6 +11,7 @@ public class Quick{
   public static int partition(int[] data, int start, int end) {
     int pivotIndex = (int) (Math.random()*(end - start) + start);
     int pivot = data[pivotIndex];
+    System.out.println(pivot);
     int low = start + 1;
     int high = end;
     data[pivotIndex] = data[0];//swap pivot and index
