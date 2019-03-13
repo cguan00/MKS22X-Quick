@@ -37,7 +37,25 @@ public class Quick{
 
   //method to check if parition is working properly
   //all values on left will be less than partition, all values on right will be greater
-  public boolean checkPartition(int[] data){
+  public static boolean checkPartition(int[] data){
+    int pivot = partition(data, 0, data.length - 1);
+    for(int i = 0; i < data.length; i++){
+      if(i < pivot){
+        if(data[i] > data[pivot]){
+          return false;
+        }
+      }
+      if(i > pivot){
+        if(data[i] < data[pivot]){
+          return false;
+        }
+      }
+      if(i == pivot){
+        if(data[i] != data[pivot]){
+          return false;
+        }
+      }
+    }
     return true;
   }
 
