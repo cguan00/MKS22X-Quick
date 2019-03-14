@@ -8,14 +8,13 @@ public class Quick{
  *4. all elements in range that are larger than the pivot element are placed after the pivot element.
  *@return the index of the final position of the pivot element.
  */
-  public static int partition(int[] data, int start, int end) {
+   public static int partition(int[] data, int start, int end) {
     int pivotIndex = (int) (Math.random()*(end - start) + start);
     int pivot = data[pivotIndex];
     // System.out.println(pivot);
     int low = start + 1;
     int high = end;
-    data[pivotIndex] = data[0];//swap pivot and index
-    data[0] = pivot;//swap pivot and index
+    swap(data, start, pivotIndex);
     while(low <= high){//while still within bounds
       if(data[low] > pivot){//if greater than the pivot
         swap(data, low, high);
@@ -28,35 +27,11 @@ public class Quick{
     return high;
   }
 
-  public static void swap(int[] data, int start, int end) {
-    int temp = data[end];
-    data[end] = data[start];
-    data[start] = temp;
-  }
 
-
-  //method to check if parition is working properly
-  //all values on left will be less than partition, all values on right will be greater
-  public static boolean checkPartition(int[] data){
-    int pivot = partition(data, 0, data.length - 1);
-    for(int i = 0; i < data.length; i++){
-      if(i < pivot){
-        if(data[i] > data[pivot]){
-          return false;
-        }
-      }
-      if(i > pivot){
-        if(data[i] < data[pivot]){
-          return false;
-        }
-      }
-      if(i == pivot){
-        if(data[i] != data[pivot]){
-          return false;
-        }
-      }
-    }
-    return true;
+  public static void swap(int[] data, int a, int b) {
+    int temp = data[a];
+    data[a] = data[b];
+    data[b] = temp;
   }
 
   public static String printArray(int[] data){
@@ -70,17 +45,18 @@ public class Quick{
   /*return the value that is the kth smallest value of the array. k = 0 is the smallest
  */
   public static int quickselect(int[] data, int k){
-    int pivot = partition(data, 0, data.length - 1);
-    if(k == pivot){
-      return pivot;
+    int start = 0;//start from beginning of array
+    int end = data.length - 1;//end at end of array
+    int pivot = partition(data, start, end);//partition it once
+    while(pivot != k){//keep going if you haven't reached target value
+      if(pivot > k){//if pivot index is greater than target
+        end = pivot - 1;
+      }else{//if pivot index is less than target
+        start = pivot + 1;
+      }
+      pivot = partition(data, start, end);
     }
-    if(pivot < k){
-
-    }
-    if(pivot > k){
-      
-    }
-    return 0;
+    return data[pivot];//return value at the pivot index
   }
 
   /*Modify the array to be in increasing order.
