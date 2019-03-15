@@ -29,12 +29,12 @@ public class Quick{
      }
 
      //same as non-optimized version, with the addition of the random number chooser when number is same as pivot
+     swap(data, start, pivotIndex);
      int low = start + 1;
      int high = end;
-     swap(data, start, pivotIndex);
+     Random r = new Random();//use for optimization. will have either 1 or 0 to choose which side you add to if you're looking at num equal to pivot
      while(low <= high){//while still within bounds
-       int rand = (int)(Math.random() * 2);//use for optimization. either 1 or 0 to choose which side you add to if you're looking at num equal to pivot
-       if(data[low] > pivot || (data[low] == pivot && rand == 0)){//if greater than the pivot, and use rand to optimize
+       if(data[low] > pivot || (data[low] == pivot && r.nextInt() % 2 == 0)){//if greater than the pivot, and use rand to optimize
          swap(data, low, high);
          high--;
        }else{
