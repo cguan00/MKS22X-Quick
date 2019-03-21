@@ -110,9 +110,13 @@ public class Quick{
    }
 
    public static void quicksort(int[] data, int lo, int hi){
-     if(lo >= hi){
+     if(hi - lo <= 50){
+       insertionsort(data, lo, hi);
        return;
      }
+     // if(lo >= hi){
+     //   return;
+     // }
      int pivot = partition(data, lo, hi);
      quicksort(data, lo, pivot - 1);
      quicksort(data, pivot + 1, hi);
